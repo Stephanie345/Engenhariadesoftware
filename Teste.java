@@ -13,10 +13,14 @@ class Teste {
 		
 		assertEquals(plataforma.getVideos().size(), 0);
 		
-		plataforma.cadastrarVideo(new Video("DIY", new Categoria("entretenimento")));
-		plataforma.cadastrarVideo(new Video("receita ", new Categoria("culinaria ")));
+		plataforma.cadastrarVideo(new Video("DIY", new Categoria("entretenimento"), " 6.0"));
+		plataforma.cadastrarVideo(new Video("receita ", new Categoria("culinaria "), "5.0"));
 		
 		assertEquals(plataforma.getVideos().size(), 2);
+		
+		assertEquals(plataforma.getVideos().get(0).getDuracao(), " 6.0"); 
+		
+		assertEquals(plataforma.getVideos().get(1).getDuracao(), "5.0");
 		
 		Video videoEncontrado= plataforma.buscarVideoPorNome("receita ");
 		
@@ -28,3 +32,4 @@ class Teste {
 	}
 
 }
+
